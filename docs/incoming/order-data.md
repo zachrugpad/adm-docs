@@ -1102,3 +1102,373 @@ See JSON
 ```
 
 </details>
+
+<details>
+<summary>
+See Kevin.JSON
+</summary>
+```jsx title="ORDER.JSON"
+
+{
+  id: 5828730978625,
+  admin_graphql_api_id: 'gid://shopify/Order/5828730978625',
+  app_id: 12875497473,
+  browser_ip: '160.72.126.43',
+  buyer_accepts_marketing: false,
+  cancel_reason: null,
+  cancelled_at: null,
+  cart_token: 'Z2NwLXVzLWVhc3QxOjAxSFdERkNHMEc0RVhTS1E4Q0FCM1c1Nk0x',
+  checkout_id: 37419747508545,
+  checkout_token: '913bcce9b93cfe318cae4094043b7599',
+  client_details: {
+    accept_language: 'en-US',
+    browser_height: null,
+    browser_ip: '160.72.126.43',
+    browser_width: null,
+    session_hash: null,
+    user_agent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
+  },
+  closed_at: null,
+  company: null,
+  confirmation_number: 'QYD758MV3',
+  confirmed: true,
+  contact_email: 'Kevin.schmelter@rugpadusa.com',
+  created_at: '2024-04-26T11:11:58-04:00',
+  currency: 'USD',
+  current_subtotal_price: '0.00',
+  current_subtotal_price_set: {
+    shop_money: {
+      amount: '0.00',
+      currency_code: 'USD'
+    },
+    presentment_money: {
+      amount: '0.00',
+      currency_code: 'USD'
+    }
+  },
+  current_total_additional_fees_set: null,
+  current_total_discounts: '10.00',
+  current_total_discounts_set: {
+    shop_money: {
+      amount: '10.00',
+      currency_code: 'USD'
+    },
+    presentment_money: {
+      amount: '10.00',
+      currency_code: 'USD'
+    }
+  },
+  current_total_duties_set: null,
+  current_total_price: '0.00',
+  current_total_price_set: {
+    shop_money: {
+      amount: '0.00',
+      currency_code: 'USD'
+    },
+    presentment_money: {
+      amount: '0.00',
+      currency_code: 'USD'
+    }
+  },
+  current_total_tax: '0.00',
+  current_total_tax_set: {
+    shop_money: {
+      amount: '0.00',
+      currency_code: 'USD'
+    },
+    presentment_money: {
+      amount: '0.00',
+      currency_code: 'USD'
+    }
+  },
+  customer_locale: 'en-US',
+  device_id: null,
+  discount_codes: [
+    {
+      code: 'FREE',
+      amount: '10.00',
+      type: 'percentage'
+    }
+  ],
+  email: 'Kevin.schmelter@rugpadusa.com',
+  estimated_taxes: false,
+  financial_status: 'paid',
+  fulfillment_status: null,
+  landing_site: null,
+  landing_site_ref: null,
+  location_id: null,
+  merchant_of_record_app_id: null,
+  name: '#1003',
+  note: null,
+  note_attributes: [
+    
+  ],
+  number: 3,
+  order_number: 1003,
+  order_status_url: ' https://rugs-skeleton.myshopify.com/86908797249/orders/62c061b513c94d6a386e4ebee4ac35d6/authenticate?key=3fe450a601d8735044b67971aa8e8785',
+  original_total_additional_fees_set: null,
+  original_total_duties_set: null,
+  payment_gateway_names: [
+    
+  ],
+  phone: null,
+  po_number: null,
+  presentment_currency: 'USD',
+  processed_at: '2024-04-26T11:11:57-04:00',
+  reference: '3bde523b22e65609f762f09ba116d1cf',
+  referring_site: null,
+  source_identifier: '3bde523b22e65609f762f09ba116d1cf',
+  source_name: '12875497473',
+  source_url: null,
+  subtotal_price: '0.00',
+  subtotal_price_set: {
+    shop_money: {
+      amount: '0.00',
+      currency_code: 'USD'
+    },
+    presentment_money: {
+      amount: '0.00',
+      currency_code: 'USD'
+    }
+  },
+  tags: '',
+  tax_exempt: false,
+  tax_lines: [
+    
+  ],
+  taxes_included: false,
+  test: false,
+  token: '62c061b513c94d6a386e4ebee4ac35d6',
+  total_discounts: '10.00',
+  total_discounts_set: {
+    shop_money: {
+      amount: '10.00',
+      currency_code: 'USD'
+    },
+    presentment_money: {
+      amount: '10.00',
+      currency_code: 'USD'
+    }
+  },
+  total_line_items_price: '10.00',
+  total_line_items_price_set: {
+    shop_money: {
+      amount: '10.00',
+      currency_code: 'USD'
+    },
+    presentment_money: {
+      amount: '10.00',
+      currency_code: 'USD'
+    }
+  },
+  total_outstanding: '0.00',
+  total_price: '0.00',
+  total_price_set: {
+    shop_money: {
+      amount: '0.00',
+      currency_code: 'USD'
+    },
+    presentment_money: {
+      amount: '0.00',
+      currency_code: 'USD'
+    }
+  },
+  total_shipping_price_set: {
+    shop_money: {
+      amount: '0.00',
+      currency_code: 'USD'
+    },
+    presentment_money: {
+      amount: '0.00',
+      currency_code: 'USD'
+    }
+  },
+  total_tax: '0.00',
+  total_tax_set: {
+    shop_money: {
+      amount: '0.00',
+      currency_code: 'USD'
+    },
+    presentment_money: {
+      amount: '0.00',
+      currency_code: 'USD'
+    }
+  },
+  total_tip_received: '0.00',
+  total_weight: 0,
+  updated_at: '2024-04-26T11:11:59-04:00',
+  user_id: null,
+  billing_address: {
+    first_name: 'Kevin',
+    address1: '100 Marketing Drive',
+    phone: null,
+    city: 'Suffield',
+    zip: '06078',
+    province: 'Connecticut',
+    country: 'United States',
+    last_name: 'Schmelter',
+    address2: null,
+    company: null,
+    latitude: null,
+    longitude: null,
+    name: 'Kevin Schmelter',
+    country_code: 'US',
+    province_code: 'CT'
+  },
+  customer: {
+    id: 7954266620225,
+    email: 'kevin.schmelter@rugpadusa.com',
+    created_at: '2024-04-26T11:08:19-04:00',
+    updated_at: '2024-04-26T11:11:58-04:00',
+    first_name: 'Kevin',
+    last_name: 'Schmelter',
+    state: 'disabled',
+    note: null,
+    verified_email: true,
+    multipass_identifier: null,
+    tax_exempt: false,
+    phone: null,
+    email_marketing_consent: {
+      state: 'not_subscribed',
+      opt_in_level: 'single_opt_in',
+      consent_updated_at: null
+    },
+    sms_marketing_consent: null,
+    tags: '',
+    currency: 'USD',
+    tax_exemptions: [
+      
+    ],
+    admin_graphql_api_id: 'gid://shopify/Customer/7954266620225',
+    default_address: {
+      id: 10021603803457,
+      customer_id: 7954266620225,
+      first_name: 'Kevin',
+      last_name: 'Schmelter',
+      company: null,
+      address1: '100 Marketing Drive',
+      address2: null,
+      city: 'Suffield',
+      province: 'Connecticut',
+      country: 'United States',
+      zip: '06078',
+      phone: null,
+      name: 'Kevin Schmelter',
+      province_code: 'CT',
+      country_code: 'US',
+      country_name: 'United States',
+      default: true
+    }
+  },
+  discount_applications: [
+    {
+      target_type: 'line_item',
+      type: 'discount_code',
+      value: '100.0',
+      value_type: 'percentage',
+      allocation_method: 'across',
+      target_selection: 'all',
+      code: 'FREE'
+    }
+  ],
+  fulfillments: [
+    
+  ],
+  line_items: [
+    {
+      id: 14850839773505,
+      admin_graphql_api_id: 'gid://shopify/LineItem/14850839773505',
+      attributed_staffs: [
+        
+      ],
+      current_quantity: 1,
+      fulfillable_quantity: 1,
+      fulfillment_service: 'manual',
+      fulfillment_status: null,
+      gift_card: false,
+      grams: 0,
+      name: 'Rug - 8 x 10 / Red',
+      price: '10.00',
+      price_set: [
+        Object
+      ],
+      product_exists: true,
+      product_id: 9279856673089,
+      properties: [
+        
+      ],
+      quantity: 1,
+      requires_shipping: true,
+      sku: '000001',
+      taxable: true,
+      title: 'Rug',
+      total_discount: '0.00',
+      total_discount_set: [
+        Object
+      ],
+      variant_id: 48270917042497,
+      variant_inventory_management: 'shopify',
+      variant_title: '8 x 10 / Red',
+      vendor: 'rugs-skeleton',
+      tax_lines: [
+        
+      ],
+      duties: [
+        
+      ],
+      discount_allocations: [
+        Array
+      ]
+    }
+  ],
+  payment_terms: null,
+  refunds: [
+    
+  ],
+  shipping_address: {
+    first_name: 'Kevin',
+    address1: '100 Marketing Drive',
+    phone: null,
+    city: 'Suffield',
+    zip: '06078',
+    province: 'Connecticut',
+    country: 'United States',
+    last_name: 'Schmelter',
+    address2: null,
+    company: null,
+    latitude: 41.95965169999999,
+    longitude: -72.6603919,
+    name: 'Kevin Schmelter',
+    country_code: 'US',
+    province_code: 'CT'
+  },
+  shipping_lines: [
+    {
+      id: 4725583053121,
+      carrier_identifier: '2ffa3e5d7e0311e260c10350738dd1f0',
+      code: 'FREE',
+      discounted_price: '0.00',
+      discounted_price_set: [
+        Object
+      ],
+      is_removed: false,
+      phone: null,
+      price: '0.00',
+      price_set: [
+        Object
+      ],
+      requested_fulfillment_service_id: null,
+      source: 'shopify',
+      title: 'FREE',
+      tax_lines: [
+        
+      ],
+      discount_allocations: [
+        
+      ]
+    }
+  ]
+}
+```
+
+</details>
