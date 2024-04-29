@@ -3,11 +3,11 @@ title: ADM Order Connector API
 sidebar_position: 1
 ---
 
-# ADM Order Connector API
+# ADM Marketplace API Intro
 
 ## Overview
 
-Welcome to the ADM (American Digital Marketing) Order Connector API documentation. This API is designed to facilitate seamless integration between your fulfillment services and our order management systems, ensuring efficient communication and processing of e-commerce orders.
+Welcome to the American Digital Marketing (ADM) Marketplace API documentation. This API is designed to facilitate seamless integration between your fulfillment services and our order management systems, ensuring efficient communication and processing of e-commerce orders.
 
 ## Objects
 

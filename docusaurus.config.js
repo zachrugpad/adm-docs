@@ -9,7 +9,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'American Digital Marketing',
-  tagline: 'API Documentation',
+  tagline: 'Marketplace API',
   favicon: 'img/favicon.ico',
   themes: ["docusaurus-json-schema-plugin"],
 

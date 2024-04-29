@@ -53,13 +53,18 @@ Example Request JSON
 {
     "order_id": 450789469,
     "line_items": [
-      {
-        "sku": "RPBF24-1941",
-        "quantity": 1,
-      }
+        {
+            "sku": "RPBF24-1941",
+            "quantity": 1
+        },
+        {
+            "sku": "RPBF24-2211",
+            "quantity": 1
+        }
     ],
     "tracking_number": "1ZE356F8YW01937117"
 }
+
 ```
 
 </details>
@@ -80,10 +85,15 @@ Response
 
 ```js
 {
-  "order_id": 450789469,
-  "status": "created",
-  "tracking_number": "1ZE356F8YW01937117",
-  "created_at": "2024-04-30T12:00:00Z"
+    "line_items": [
+        {
+            "quantity": 1,
+            "sku": "RPBF24-1941"
+        }
+    ],
+    "order_id": 450789469,
+    "status": "created",
+    "tracking_number": "1ZE356F8YW01937117"
 }
 ```
 
