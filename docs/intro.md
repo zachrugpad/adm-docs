@@ -35,7 +35,7 @@ Once orders are processed and items begin to ship, partners will use the Fulfill
 2. **Receive Updates:** ADM receives these updates, allowing it to update the order status in its system and manage customer expectations accordingly.
 3. **Handling Exceptions:** In cases of delays or issues, partners provide additional updates to assist ADM in managing customer service.
 
-For a comprehensive guide on integrating and handling fulfillment updates, please see the [Fulfillment Updates Guide](./create-fulfillment).
+For a comprehensive guide on integrating and handling fulfillment updates, please see the [Fulfillment Updates Guide](./fulfillment-update).
 
 ## Getting Started
 
