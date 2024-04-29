@@ -162,7 +162,7 @@ Included are examples of both the request format and the various responses you m
 This endpoint is a key component in the fulfillment process, enabling efficient and accurate updates on order processing and shipment.
 
 ### 200 OK
-**Description:** The fulfillment was successfully created.
+**Description:** Order successfully ingested.
 
 <details>
 <summary>
