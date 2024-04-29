@@ -7,7 +7,7 @@ title: Create a Fulfillment
 
 Creates a fulfillment for one or many fulfillment orders. The fulfillment orders are associated with the same order and are assigned to the same location.
 
-### Parameters
+### Parameters 2
 
 #### `line_items_by_fulfillment_order`
 - Type: `array`
