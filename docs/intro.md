@@ -5,29 +5,27 @@ sidebar_position: 1
 
 # ADM Order Connector API
 
-Welcome to the ADM (American Digital Marketing) Order Connector API documentation. This API is designed to facilitate seamless integration between your fulfillment services and our order management systems, ensuring efficient communication and processing of e-commerce orders.
-
 ## Overview
 
-The ADM Order Connector API provides a robust interface for e-commerce platforms to automate the exchange of order information and fulfillment updates. By integrating with our API, partners can recieve new order updates and send fulfillment details directly from their systems to ours, where they will be promptly processed and updated in our order management system.
+Welcome to the ADM (American Digital Marketing) Order Connector API documentation. This API is designed to facilitate seamless integration between your fulfillment services and our order management systems, ensuring efficient communication and processing of e-commerce orders.
 
-## Key Features
+## Objects
 
-### Order Submission
+### Orders
 
-The Order Submission endpoint allows ADM to send comprehensive order details directly to your systems for efficient processing and fulfillment. This ensures that all necessary information, including quantities and customer shipping details, are transmitted securely and promptly.
+The Orders endpoint allows ADM to send comprehensive order details directly to your systems for efficient processing and fulfillment. This ensures that all necessary information, including quantities and customer shipping details, are transmitted securely and promptly.
 
 #### How It Works
 
-1. **Prepare Order Data:** ADM gathers all relevant order information, structured according to the format specified in the [Data Format](./order-resource) section.
+1. **Prepare Order Data:** ADM gathers all relevant order information, structured according to the format specified in the [Data Format](./orders) section.
 2. **Send to Partners:** Using the provided API credentials, ADM securely submits the order data to the partner's system.
 3. **Confirmation Receipt:** Upon successful submission, ADM receives a confirmation from the partner, acknowledging the receipt of the order.
 
-For more detailed information on the data fields required and the submission process, refer to the [Order Submission Guide](./order-resource).
+For more detailed information on the data fields required and the submission process, refer to the [Order Submission Guide](./orders).
 
-### Fulfillment Updates
+### Fulfillments
 
-Once orders are processed and items begin to ship, partners will use the Fulfillment Updates endpoint to transmit real-time notifications back to ADM. These updates provide detailed information about the shipping status of each line item in an order, helping ADM keep track of fulfillment progress.
+Once orders are processed and items begin to ship, partners will use the Fulfillments endpoint to transmit real-time notifications back to ADM. These updates provide detailed information about the shipping status of each line item in an order, helping ADM keep track of fulfillment progress.
 
 #### Update Flow
 
@@ -35,7 +33,7 @@ Once orders are processed and items begin to ship, partners will use the Fulfill
 2. **Receive Updates:** ADM receives these updates, allowing it to update the order status in its system and manage customer expectations accordingly.
 3. **Handling Exceptions:** In cases of delays or issues, partners provide additional updates to assist ADM in managing customer service.
 
-For a comprehensive guide on integrating and handling fulfillment updates, please see the [Fulfillment Updates Guide](./fulfillment-update).
+For a comprehensive guide on integrating and handling fulfillment updates, please see the [Fulfillment Updates Guide](./fulfillments).
 
 ## Getting Started
 

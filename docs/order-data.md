@@ -1,20 +1,20 @@
 ---
 sidebar_position: 2
-id: order-resource
-title: Order Resource
+id: orders
+title: Orders
 ---
 
-# Order Resource
+# Orders
 
-The Order Resource represents a comprehensive data structure capturing all essential details about a customer's order. This resource is critical for partners integrating with the ADM Order Connector API, as it enables them to receive detailed, structured information about orders processed by ADM. By leveraging this resource, partners can efficiently manage order fulfillment and ensure timely and accurate service delivery.
+The Order Object represents a comprehensive data structure capturing all essential details about a customer's order. This resource is critical for partners integrating with the ADM Order Connector API, as it enables them to receive detailed, structured information about orders processed by ADM. By leveraging this resource, partners can efficiently manage order fulfillment and ensure timely and accurate service delivery.
 
 ## Overview
 
-The Order Resource contains several properties that encapsulate key aspects of an order, including customer details, line items, pricing, and shipping information. Each property is meticulously defined to ensure clarity and consistency across different systems.
+The Order Object contains several properties that encapsulate key aspects of an order, including customer details, line items, pricing, and shipping information. Each property is meticulously defined to ensure clarity and consistency across different systems.
 
 ### Usage
 
-When ADM sends order data, the Order Resource will be structured as follows:
+When ADM sends order data, the Order Object will be structured as follows:
 
 - **Customer Information:** Details such as email, phone, and shipping address help in identifying and communicating with the customer.
 - **Order Details:** Includes unique identifiers like `order_id` and timestamps indicating when the order was placed.
@@ -23,7 +23,7 @@ When ADM sends order data, the Order Resource will be structured as follows:
 
 ### Key Properties
 
-Below are some of the critical properties of the Order Resource:
+Below are some of the critical properties of the Order Object:
 
 - `order_id`: A unique identifier for the order within our system.
 - `line_items`: Details of each item ordered, essential for fulfillment and inventory tracking.
