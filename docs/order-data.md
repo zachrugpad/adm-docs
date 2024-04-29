@@ -78,8 +78,6 @@ This resource is fundamental for enabling a seamless flow of order-related data 
   - **`country_code`**: The two-letter code (ISO 3166-1 format) for the country of the shipping address.
   - **`first_name`**: The first name of the person associated with the payment method.
   - **`last_name`**: The last name of the person associated with the payment method.
-  - **`latitude`**: The latitude of the shipping address.
-  - **`longitude`**: The longitude of the shipping address.
   - **`name`**: The full name of the person associated with the payment method.
   - **`phone`**: The phone number at the shipping address.
   - **`province`**: The name of the region (for example, province, state, or prefecture) of the shipping address.
@@ -123,33 +121,34 @@ ORDER.JSON
   "email": "kevin.schmelter@rugpadusa.com",
   "order_id": 5828730978625,
   "line_items": [
-    {
-      "quantity": 1,
-      "sku": '000001',
-      
-    }
+      {
+          "sku": "RPBF24-1941",
+          "quantity": 1
+      },
+      {
+          "sku": "RPBF24-2211",
+          "quantity": 1
+      }
   ],
   "shipping_address": {
-    "first_name": 'Kevin',
-    "address1": '100 Marketing Drive',
+    "first_name": "Kevin",
+    "address1": "100 Marketing Drive",
     "phone": null,
-    "city": 'Suffield',
-    "zip": '06078',
-    "province": 'Connecticut',
-    "country": 'United States',
-    "last_name": 'Schmelter',
+    "city": "Suffield",
+    "zip": "06078",
+    "province": "Connecticut",
+    "country": "United States",
+    "last_name": "Schmelter",
     "address2": null,
     "company": null,
-    "latitude": 41.95965169999999,
-    "longitude": -72.6603919,
-    "country_code": 'US',
-    "province_code": 'CT'
-  }
-  "subtotal_price": '0.00',
-  "total_discounts": '10.00',
-  "total_line_items_price": '10.00',
-  "total_price": '0.00',
-  "total_tax": '0.00',
+    "country_code": "US",
+    "province_code": "CT"
+  },
+  "subtotal_price": "0.00",
+  "total_discounts": "10.00",
+  "total_line_items_price": "10.00",
+  "total_price": "0.00",
+  "total_tax": "0.00"
 }
 ```
 
