@@ -53,7 +53,7 @@ Response
 </summary>
 ```
 {
-  "prder_id": 450789469,
+  "order_id": 450789469,
   "status": "created",
   "tracking_number": "1ZE356F8YW01937117",
   "created_at": "2024-04-30T12:00:00Z"

@@ -1,6 +1,6 @@
 {
-  "label": "Incoming",
-  "position": 2,
+  "label": "Webhook",
+  "position": 4,
   "link": {
     "type": "generated-index",
     "description": "What we send to you."

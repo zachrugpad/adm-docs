@@ -1,47 +1,56 @@
 ---
+title: ADM Order Connector API
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# ADM Order Connector API
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Welcome to the ADM (American Digital Marketing) Order Connector API documentation. This API is designed to facilitate seamless integration between your order management systems and our fulfillment services, ensuring efficient communication and processing of e-commerce orders.
+
+## Overview
+
+The ADM Order Connector API provides a robust interface for e-commerce platforms to automate the exchange of order information and fulfillment updates. By integrating with our API, you can send order details directly from your system to ours, where they will be promptly processed and fulfilled according to your operational workflows.
+
+## Key Features
+
+### Order Submission
+
+The Order Submission endpoint allows ADM to send comprehensive order details directly to your systems for efficient processing and fulfillment. This ensures that all necessary information, including item descriptions, quantities, and customer shipping details, are transmitted securely and promptly.
+
+#### How It Works
+
+1. **Prepare Order Data:** ADM gathers all relevant order information, structured according to the format specified in the [Data Format](./data-format) section.
+2. **Send to Partners:** Using the provided API credentials, ADM securely submits the order data to the partner's system.
+3. **Confirmation Receipt:** Upon successful submission, ADM receives a confirmation from the partner, acknowledging the receipt of the order.
+
+For more detailed information on the data fields required and the submission process, refer to the [Order Submission Guide](./order-submission-guide).
+
+### Fulfillment Updates
+
+Once orders are processed and items begin to ship, partners will use the Fulfillment Updates endpoint to transmit real-time notifications back to ADM. These updates provide detailed information about the shipping status of each line item in an order, helping ADM keep track of fulfillment progress.
+
+#### Update Flow
+
+1. **Shipping Notification:** When an item ships, partners send a fulfillment update to ADM containing the shipping details, including carrier information and tracking numbers.
+2. **Receive Updates:** ADM receives these updates, allowing it to update the order status in its system and manage customer expectations accordingly.
+3. **Handling Exceptions:** In cases of delays or issues, partners provide additional updates to assist ADM in managing customer service.
+
+For a comprehensive guide on integrating and handling fulfillment updates, please see the [Fulfillment Updates Guide](./fulfillment-updates-guide).
 
 ## Getting Started
 
-Get started by **creating a new site**.
+To begin integrating with the ADM Order Connector API, follow these steps:
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+1. **API Credentials:** Ensure you have received your API credentials from ADM. These are necessary for authenticating your requests.
 
-### What you'll need
+2. **Read the Documentation:** Familiarize yourself with the API endpoints detailed in this documentation. Each section provides examples and required parameters to guide your integration process.
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+3. **Test Your Integration:** Utilize our sandbox environment to test your API calls. This ensures that your integration is working correctly before going live.
 
-## Generate a new site
+4. **Go Live:** Once testing is complete and you are satisfied with the integration, you can move to production and start automating your order fulfillment process.
 
-Generate a new Docusaurus site using the **classic template**.
+## Support
 
-The classic template will automatically be added to your project after you run the command:
+Should you encounter any issues or have questions during your integration, our support team is available to assist you. Contact us at [support@admdigital.com](mailto:support@admdigital.com) for technical support and integration queries.
 
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+We look forward to supporting your e-commerce operations and helping you achieve streamlined order fulfillment with the ADM Order Connector API.
