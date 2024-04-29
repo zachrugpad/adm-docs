@@ -19,11 +19,11 @@ The Order Submission endpoint allows ADM to send comprehensive order details dir
 
 #### How It Works
 
-1. **Prepare Order Data:** ADM gathers all relevant order information, structured according to the format specified in the [Data Format](./data-format) section.
+1. **Prepare Order Data:** ADM gathers all relevant order information, structured according to the format specified in the [Data Format](./order-resource) section.
 2. **Send to Partners:** Using the provided API credentials, ADM securely submits the order data to the partner's system.
 3. **Confirmation Receipt:** Upon successful submission, ADM receives a confirmation from the partner, acknowledging the receipt of the order.
 
-For more detailed information on the data fields required and the submission process, refer to the [Order Submission Guide](./order-submission-guide).
+For more detailed information on the data fields required and the submission process, refer to the [Order Submission Guide](./order-resource).
 
 ### Fulfillment Updates
 
@@ -35,7 +35,7 @@ Once orders are processed and items begin to ship, partners will use the Fulfill
 2. **Receive Updates:** ADM receives these updates, allowing it to update the order status in its system and manage customer expectations accordingly.
 3. **Handling Exceptions:** In cases of delays or issues, partners provide additional updates to assist ADM in managing customer service.
 
-For a comprehensive guide on integrating and handling fulfillment updates, please see the [Fulfillment Updates Guide](./fulfillment-updates-guide).
+For a comprehensive guide on integrating and handling fulfillment updates, please see the [Fulfillment Updates Guide](./create-fulfillment).
 
 ## Getting Started
 
