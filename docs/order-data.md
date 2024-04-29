@@ -154,3 +154,43 @@ ORDER.JSON
 ```
 
 </details>
+
+## Example Responses
+
+Included are examples of both the request format and the various responses you might encounter. These examples help to clarify the expected data format and guide proper API usage.
+
+This endpoint is a key component in the fulfillment process, enabling efficient and accurate updates on order processing and shipment.
+
+### 200 OK
+**Description:** The fulfillment was successfully created.
+
+<details>
+<summary>
+Response
+</summary>
+
+```js
+{
+  "order_id": 450789469,
+  "status": "success"
+}
+```
+
+</details>
+
+### 400 Bad Request
+**Description:** The request was invalid. An accompanying message will provide details about the error.
+
+<details>
+<summary>
+Response
+</summary>
+
+```js
+{
+  "error": "Unable to Add Order to System",
+  "message": "Bad Request."
+}
+```
+
+</details>
