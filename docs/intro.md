@@ -1,9 +1,9 @@
 ---
-title: ADM Order Connector API
+title: ADM Marketplace API
 sidebar_position: 1
 ---
 
-# ADM Marketplace API Intro
+# ADM Marketplace API
 
 ## Overview
 

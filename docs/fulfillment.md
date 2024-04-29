@@ -30,6 +30,10 @@ To create a fulfillment, you must specify which line items in the order are bein
 - Type: `string`
 - Description: A crucial element for logistics, the tracking number allows ADM and the customer to track the shipment's progress.
 
+#### `key` <sup class="required">required</sup>
+- Type: `string`
+- Description: Your ADM Marketplace API Key
+
 :::note
 
 You can set only one tracking number and one tracking URL per fulfillment. If you send multiple shipments with one order, you must create separate fulfillments for each shipment.
@@ -51,7 +55,7 @@ Example Request JSON
 
 ```js
 {
-    "order_id": 450789469,
+    "order_id": 156465,
     "line_items": [
         {
             "sku": "RPBF24-1941",
@@ -62,9 +66,9 @@ Example Request JSON
             "quantity": 1
         }
     ],
-    "tracking_number": "1ZE356F8YW01937117"
+    "tracking_number": "1ZE356F8YW01937117",
+    "key": "AIzaSyDaGmWKa4JsXZ-HjGw7ISLn_3namBGewQe"
 }
-
 ```
 
 </details>
@@ -111,6 +115,23 @@ Response
 {
   "error": "Invalid SKU or Quantity",
   "message": "One or more line items have an invalid SKU or quantity specified."
+}
+```
+
+</details>
+
+### 401 Unauthorized
+**Description:** The request was not authorized.
+
+<details>
+<summary>
+Response
+</summary>
+
+```js
+{
+  "error": "Unauthorized Request",
+  "message": "The key provided is invalid."
 }
 ```
 
