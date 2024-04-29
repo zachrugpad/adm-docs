@@ -5,66 +5,106 @@ title: Create a Fulfillment
 ---
 
 
-Creates a fulfillment for one or many fulfillment orders. The fulfillment orders are associated with the same order and are assigned to the same location.
+Creates a fulfillment for an orders.
 
-### Parameters 2
+### Parameters
 
-#### `line_items_by_fulfillment_order`
+#### `line_items_by_fulfillment_order` <sup class="required">required</sup>
 - Type: `array`
-- Required
 - Description: The fulfillment order line items that have to be fulfilled.
-  - **`order_id`**: (integer) (required) The ID of the fulfillment order.
+  - **`order_id`**: (integer) (required) The ID of the order you are fulfilling.
   - **`line_items`**: (array) (required) The fulfillment order line items and the quantity of each which should be fulfilled. If this property is undefined, then all of the fulfillment order line items of the associated fulfillment order are fulfilled.
-  - **`id`**: (integer) (required) The ID of the fulfillment order line item.
-  - **`sku`**: (integer) (required) The ID of the fulfillment order line item.
-  - **`quantity`**: (integer) (required) The quantity of the fulfillment order line item, minimum of 1.
+    - **`sku`**: (integer) (required) The SKU of the order line item.
+    - **`quantity`**: (integer) (required) The quantity of the order line item, minimum of 1.
 
-<!-- #### `message`
+#### `tracking_number` <sup class="required">required</sup>
 - Type: `string`
-- Description: A message associated with the fulfillment request. This message is only available if the associated fulfillment order is assigned to a third-party fulfillment service that has opted in to managing fulfillment orders. -->
+- Description: The tracking number for the fulfillment.
 
-<!-- #### `notify_customer`
-- Type: `boolean`
-- Description: Whether the customer should be notified. If set to true, then an email will be sent when the fulfillment is created or updated. The default value is false.
-
-#### `origin_address`
-- Type: `object`
-- Description: The address of the fulfillment location, intended for tax purposes. A full address is required for tax providers to accurately calculate taxes. To retrieve a fulfillment location's address, use the `assigned_location` property on the FulfillmentOrder resource. -->
-
-#### `tracking_info`
-- Type: `object`
-- Description: The tracking information for the fulfillment.
-  <!-- - **`company`**: (string) The name of the tracking company. For tracking company names listed on the Shopify Shipping Carriers help page, Shopify will automatically update the fulfillment's shipment_status field during the fulfillment process. -->
-  - **`tracking_number`**: (string) (required) The tracking number for the fulfillment. The tracking number will be clickable in the interface under certain conditions:
-    - Tracking URL provided in the `url` field.
-    - Shopify-known tracking company name specified in the company field. Shopify will build the tracking URL automatically based on the tracking number specified.
-    - The tracking number has a Shopify-known format. Shopify will guess the tracking provider and build the tracking URL based on the tracking number format.
-  - **`tracking_url`**: (string) (required) The URL to track the fulfillment. Displayed in the merchant's admin on the order page and in the shipping confirmation email, which can optionally be sent to the customer. Also displayed in the customer's order history when accounts are enabled.
-
-**Note**: You can set only one tracking number and one tracking URL per fulfillment. If you send multiple shipments with one order, you must 
-
-
+**Note**: You can set only one tracking number and one tracking URL per fulfillment. If you send multiple shipments with one order, you must create separate fulfillments for each shipment.
 
 <details>
 <summary>
-Fulfillment JSON
+Request JSON
 </summary>
-```jsx title="Fulfillment.JSON"
+```
 {
-  "fulfillment": {
     "order_id": 450789469,
     "line_items": [
       {
-        "id": 1071823177,
-        "quantity": 1,
         "sku": "RPBF24-1941",
-        "product_id": 910489600,
-        "fulfillment_status": "fulfilled",
+        "quantity": 1,
       }
     ],
-    "tracking_number": "MS1562678",
-    "tracking_url": "https://www.my-shipping-company.com?tracking_number=MS1562678",
-  }
+    "tracking_number": "1ZE356F8YW01937117"
+}
+```
+
+</details>
+
+### Example Responses
+
+#### 200 OK
+**Description:** The fulfillment was successfully created.
+
+<details>
+<summary>
+Response
+</summary>
+```
+{
+  "prder_id": 450789469,
+  "status": "created",
+  "tracking_number": "1ZE356F8YW01937117",
+  "created_at": "2024-04-30T12:00:00Z"
+}
+```
+
+</details>
+
+#### 400 Bad Request
+**Description:** The request was invalid. An accompanying message will provide details about the error.
+
+<details>
+<summary>
+Response
+</summary>
+```
+{
+  "error": "Invalid SKU or Quantity",
+  "message": "One or more line items have an invalid SKU or quantity specified."
+}
+```
+
+</details>
+
+#### 404 Not Found
+**Description:** The specified order ID does not exist.
+
+<details>
+<summary>
+Response
+</summary>
+```
+{
+  "error": "Order Not Found",
+  "message": "The order with the specified ID was not found."
+}
+```
+
+</details>
+
+#### 500 Internal Server Error
+**Description:** An unexpected error occurred.
+
+<details>
+<summary>
+Response
+</summary>
+```
+{
+  "error": "Server Error",
+  "message": "An error occurred on our server. Please try again later."
 }
 ```
 
