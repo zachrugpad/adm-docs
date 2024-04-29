@@ -93,51 +93,52 @@ title: Order Resource
 ORDER.JSON
 </summary>
 ```
-
 {
-  order_id: 5828730978625,
-  contact_email: 'Kevin.schmelter@rugpadusa.com',
-  created_at: '2024-04-26T11:11:58-04:00',
-  subtotal_price: '0.00',
-  total_discounts: '10.00',
-  total_price: '0.00',
-  total_tax: '0.00',
-  discount_codes: [
+  "order_id": 5828730978625,
+  "contact_email": 'Kevin.schmelter@rugpadusa.com',
+  "created_at": '2024-04-26T11:11:58-04:00',
+  "subtotal_price": '0.00',
+  "total_discounts": '10.00',
+  "total_price": '0.00',
+  "total_tax": '0.00',
+  "discount_codes": [
     {
-      code: 'FREE',
-      amount: '10.00',
-      type: 'percentage'
+      "code": 'FREE',
+      "amount": '10.00',
+      'type': 'percentage'
     }
   ],
-  total_discounts: '10.00',
-  total_line_items_price: '10.00',
-  customer: {
-    email: 'kevin.schmelter@rugpadusa.com',
-    first_name: 'Kevin',
-    last_name: 'Schmelter',
-    phone: null,
+  "total_discounts": '10.00',
+  "total_line_items_price": '10.00',
+  "customer": {
+    "email": 'kevin.schmelter@rugpadusa.com',
+    "first_name": 'Kevin',
+    "last_name": 'Schmelter',
+    "phone": null,
+    
   },
-  line_items: [
+  "line_items": [
     {
-      quantity: 1,
-      sku: '000001',
+      "quantity": 1,
+      "sku": '000001',
+      
     }
   ],
-  shipping_address: {
-    first_name: 'Kevin',
-    address1: '100 Marketing Drive',
-    phone: null,
-    city: 'Suffield',
-    zip: '06078',
-    province: 'Connecticut',
-    country: 'United States',
-    last_name: 'Schmelter',
-    address2: null,
-    company: null,
-    latitude: 41.95965169999999,
-    longitude: -72.6603919,
-    country_code: 'US',
-    province_code: 'CT'
+  "shipping_address": {
+    "first_name": 'Kevin',
+    "address1": '100 Marketing Drive',
+    "phone": null,
+    "city": 'Suffield',
+    "zip": '06078',
+    "province": 'Connecticut',
+    "country": 'United States',
+    "last_name": 'Schmelter',
+    "address2": null,
+    "company": null,
+    "latitude": 41.95965169999999,
+    "longitude": -72.6603919,
+    "country_code": 'US',
+    "province_code": 'CT'
   }
 }
 ```
