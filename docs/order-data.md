@@ -25,11 +25,11 @@ When ADM sends order data, the Order Resource will be structured as follows:
 
 Below are some of the critical properties of the Order Resource:
 
-- `created_at`: Specifies when the order was recorded in our system.
-- `email`: The customer's email address for order confirmation and updates.
 - `order_id`: A unique identifier for the order within our system.
 - `line_items`: Details of each item ordered, essential for fulfillment and inventory tracking.
 - `shipping_address`: Where the order needs to be delivered, crucial for logistics and shipping.
+- `created_at`: Specifies when the order was recorded in our system.
+- `email`: The customer's email address for order confirmation and updates.
 
 This resource is fundamental for enabling a seamless flow of order-related data between ADM and our partners, facilitating effective and efficient fulfillment processes. For a detailed explanation of each property, refer to the sections below.
 
@@ -68,7 +68,7 @@ This resource is fundamental for enabling a seamless flow of order-related data 
 - Description: The mailing address associated with the payment method. This address is optional and not available on orders that do not require a payment method.
   <details>
   <summary>
-  See Billing Address Properties
+  See Shipping Address Properties
   </summary>
   - **`address1`**: The street address of the shipping address.
   - **`address2`**: An optional additional field for the street address.
@@ -107,7 +107,7 @@ This resource is fundamental for enabling a seamless flow of order-related data 
 #### `total_tax`
 - Type: `string`
 - Format: PRICE
-- Description: The sum of all the taxes applied to the order in the shop currency.
+- Description: The sum of all the taxes applied to the order.
 
 
 

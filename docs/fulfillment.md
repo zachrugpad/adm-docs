@@ -1,10 +1,10 @@
 ---
 sidebar_position: 3
-id: create-fulfillment
-title: Create a Fulfillment
+id: fulfillment-update
+title: Fulfillment Update
 ---
 
-# Create a Fulfillment
+# Fulfillment Update
 
 This endpoint is crucial for partners as it facilitates the creation of a fulfillment record for specific orders. Utilizing this function, partners can effectively communicate back to ADM the completion of the order processing phase, including the shipping details for each line item within an order. This seamless communication helps ensure that all parties are updated on the progress and status of order fulfillment. This endpoint is designed to handle both complete and partial fulfillments, allowing for flexibility in order fulfillment strategies.
 
@@ -21,16 +21,20 @@ To create a fulfillment, you must specify which line items in the order are bein
 #### `line_items_by_fulfillment_order` <sup class="required">required</sup>
 - Type: `array`
 - Description: This array should contain detailed information about each item that is part of the fulfillment, ensuring that the correct items are shipped and tracked.
-  - **`order_id`**: (integer) (required) The ID of the order you are fulfilling.
-  - **`line_items`**: (array) (required) The fulfillment order line items and the quantity of each which should be fulfilled. If this property is undefined, then all of the fulfillment order line items of the associated fulfillment order are fulfilled.
-    - **`sku`**: (integer) (required) The SKU of the order line item.
-    - **`quantity`**: (integer) (required) The quantity of the order line item, minimum of 1.
+  - **`order_id`**: <sup class="required">required</sup> (integer) The ID of the order you are fulfilling.
+  - **`line_items`**: <sup class="required">required</sup> (array) The fulfillment order line items and the quantity of each which should be fulfilled. If this property is undefined, then all of the fulfillment order line items of the associated fulfillment order are fulfilled.
+    - **`sku`**: <sup class="required">required</sup> (string) The SKU of the order line item.
+    - **`quantity`**: <sup class="required">required</sup> (integer) The quantity of the order line item, minimum of 1.
 
 #### `tracking_number` <sup class="required">required</sup>
 - Type: `string`
 - Description: A crucial element for logistics, the tracking number allows ADM and the customer to track the shipment's progress.
 
-**Note**: You can set only one tracking number and one tracking URL per fulfillment. If you send multiple shipments with one order, you must create separate fulfillments for each shipment.
+:::note
+
+You can set only one tracking number and one tracking URL per fulfillment. If you send multiple shipments with one order, you must create separate fulfillments for each shipment.
+
+:::
 
 ### Responses
 
@@ -42,7 +46,7 @@ Success and error responses are clearly defined to provide feedback on the fulfi
 
 <details>
 <summary>
-Request JSON
+Example Request JSON
 </summary>
 
 ```js
