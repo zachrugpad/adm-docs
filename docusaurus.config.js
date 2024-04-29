@@ -11,6 +11,7 @@ const config = {
   title: 'American Digital Marketing',
   tagline: 'API Documentation',
   favicon: 'img/favicon.ico',
+  themes: ["docusaurus-json-schema-plugin"],
 
   // Set the production url of your site here
   url: 'https://adm-documentation.vercel.app/',

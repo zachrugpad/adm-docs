@@ -4,9 +4,37 @@ id: order-resource
 title: Order Resource
 ---
 
-## Order Resource
+# Order Resource
 
-### Properties
+The Order Resource represents a comprehensive data structure capturing all essential details about a customer's order. This resource is critical for partners integrating with the ADM Order Connector API, as it enables them to receive detailed, structured information about orders processed by ADM. By leveraging this resource, partners can efficiently manage order fulfillment and ensure timely and accurate service delivery.
+
+## Overview
+
+The Order Resource contains several properties that encapsulate key aspects of an order, including customer details, line items, pricing, and shipping information. Each property is meticulously defined to ensure clarity and consistency across different systems.
+
+### Usage
+
+When ADM sends order data, the Order Resource will be structured as follows:
+
+- **Customer Information:** Details such as email, phone, and shipping address help in identifying and communicating with the customer.
+- **Order Details:** Includes unique identifiers like `order_id` and timestamps indicating when the order was placed.
+- **Financial Information:** Descriptive fields that provide breakdowns of prices, discounts, and totals that contribute to the financial aspects of the order.
+- **Line Items:** A list that details each product included in the order, along with quantities and SKUs.
+
+### Key Properties
+
+Below are some of the critical properties of the Order Resource:
+
+- `created_at`: Specifies when the order was recorded in our system.
+- `email`: The customer's email address for order confirmation and updates.
+- `order_id`: A unique identifier for the order within our system.
+- `line_items`: Details of each item ordered, essential for fulfillment and inventory tracking.
+- `shipping_address`: Where the order needs to be delivered, crucial for logistics and shipping.
+
+This resource is fundamental for enabling a seamless flow of order-related data between ADM and our partners, facilitating effective and efficient fulfillment processes. For a detailed explanation of each property, refer to the sections below.
+
+
+### All Properties
 
 #### `created_at`
 - Type: `string`
@@ -33,10 +61,6 @@ title: Order Resource
   - **`quantity`**: The number of items that were purchased.
   - **`sku`**: The item's SKU.
   </details>
-
-#### `phone`
-- Type: `string`
-- Description: The customer's phone number for receiving SMS notifications.
 
 #### `shipping_address`
 - Type: `object`
@@ -92,31 +116,12 @@ title: Order Resource
 <summary>
 ORDER.JSON
 </summary>
-```
+
+```js
 {
+  "created_at": "2024-04-26T11:11:58-04:00",
+  "email": "kevin.schmelter@rugpadusa.com",
   "order_id": 5828730978625,
-  "contact_email": 'Kevin.schmelter@rugpadusa.com',
-  "created_at": '2024-04-26T11:11:58-04:00',
-  "subtotal_price": '0.00',
-  "total_discounts": '10.00',
-  "total_price": '0.00',
-  "total_tax": '0.00',
-  "discount_codes": [
-    {
-      "code": 'FREE',
-      "amount": '10.00',
-      'type': 'percentage'
-    }
-  ],
-  "total_discounts": '10.00',
-  "total_line_items_price": '10.00',
-  "customer": {
-    "email": 'kevin.schmelter@rugpadusa.com',
-    "first_name": 'Kevin',
-    "last_name": 'Schmelter',
-    "phone": null,
-    
-  },
   "line_items": [
     {
       "quantity": 1,
@@ -140,6 +145,11 @@ ORDER.JSON
     "country_code": 'US',
     "province_code": 'CT'
   }
+  "subtotal_price": '0.00',
+  "total_discounts": '10.00',
+  "total_line_items_price": '10.00',
+  "total_price": '0.00',
+  "total_tax": '0.00',
 }
 ```
 
