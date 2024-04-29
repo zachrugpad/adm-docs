@@ -51,6 +51,6 @@ To begin integrating with the ADM Order Connector API, follow these steps:
 
 ## Support
 
-Should you encounter any issues or have questions during your integration, our support team is available to assist you. Contact us at [support@adm.marketing.com](support@adm.marketing.com) for technical support and integration queries.
+Should you encounter any issues or have questions during your integration, our support team is available to assist you. Contact us at [support@adm.marketing.com](mailto:support@adm.marketing.com) for technical support and integration queries.
 
 We look forward to supporting your e-commerce operations and helping you achieve streamlined order fulfillment with the ADM Order Connector API.
