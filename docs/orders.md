@@ -55,7 +55,7 @@ Valid Values
 
 #### `id`
 - Type: `string`
-- Description: The ID of the order, used for API purposes.
+- Description: The ID of the order.
 
 #### `line_items`
 - Type: `array`
@@ -64,8 +64,11 @@ Valid Values
   <summary>
   See Line Item Properties
   </summary>
+  - **`price`**: The price of the item before discounts have been applied.
   - **`quantity`**: The number of items that were purchased.
   - **`sku`**: The item's SKU.
+  - **`total_discount`**: The total amount of the discount allocated to the line item.
+  - **`total_tax`**: The total amount of tax allocated to the line item.
   </details>
 
 #### `refunds`
@@ -75,7 +78,7 @@ Valid Values
 #### `shipping_address`
 - Type: `object`
 - Object Type: `CustomerAddress`
-- Description: The mailing address associated with the payment method. This address is optional and not available on orders that do not require a payment method.
+- Description: The mailing address associated with the payment method.
   <details>
   <summary>
   See Shipping Address Properties
@@ -84,13 +87,10 @@ Valid Values
   - **`address2`**: An optional additional field for the street address.
   - **`city`**: The city, town, or village of the shipping address.
   - **`company`**: The company of the person associated with the shipping address.
-  - **`country`**: The name of the country of the shipping address.
   - **`country_code`**: The two-letter code (ISO 3166-1 format) for the country of the shipping address.
   - **`first_name`**: The first name of the person associated with the payment method.
   - **`last_name`**: The last name of the person associated with the payment method.
-  - **`name`**: The full name of the person associated with the payment method.
   - **`phone`**: The phone number at the shipping address.
-  - **`province`**: The name of the region (for example, province, state, or prefecture) of the shipping address.
   - **`province_code`**: The two-letter abbreviation of the region of the shipping address.
   - **`zip`**: The postal code (for example, zip, postcode, or Eircode) of the shipping address.
   </details>
@@ -143,24 +143,30 @@ Order.json
   "id": "987654321", 
   "line_items": [
     {
+      "price": "12.34",
       "quantity": 2,
-      "sku": "ABC-123"
+      "sku": "ABC-123",
+      "total_discount": "2.34",
+      "total_tax": "0.65"
     },
     {
-      "quantity": 1,
-      "sku": "XYZ-789"
+      "price": "43.21",
+      "quantity": 2,
+      "sku": "ABC-123",
+      "total_discount": "3.21",
+      "total_tax": "3.65"
     }
   ],
   "refunds": [],
   "shipping_address": {
     "address1": "123 Main Street",
     "city": "Anytown",
-    "province": "CA",
-    "zip": "12345",
-    "country": "United States",
     "country_code": "US",
     "first_name": "Jane",
-    "last_name": "Doe"
+    "last_name": "Doe",
+    "phone": "(123) 456-7890",
+    "province_code": "CA",
+    "zip": "12345"
   },
   "shipping_service": "Standard Ground", 
   "subtotal_price": "79.98",
@@ -193,7 +199,7 @@ A message that's delivered to your application every time an order is created th
 
 #### `id`
 - Type: `string`
-- Description: The ID of the order, used for API purposes.
+- Description: The ID of the order.
 
 #### `line_items`
 - Type: `array`
@@ -202,14 +208,17 @@ A message that's delivered to your application every time an order is created th
   <summary>
   See Line Item Properties
   </summary>
+  - **`price`**: The price of the item before discounts have been applied.
   - **`quantity`**: The number of items that were purchased.
   - **`sku`**: The item's SKU.
+  - **`total_discount`**: The total amount of the discount allocated to the line item.
+  - **`total_tax`**: The total amount of tax allocated to the line item.
   </details>
 
 #### `shipping_address`
 - Type: `object`
 - Object Type: `CustomerAddress`
-- Description: The mailing address associated with the payment method. This address is optional and not available on orders that do not require a payment method.
+- Description: The mailing address associated with the payment method.
   <details>
   <summary>
   See Shipping Address Properties
@@ -219,13 +228,10 @@ A message that's delivered to your application every time an order is created th
   - **`city`**: The city, town, or village of the shipping address.
   - **`company`**: The company of the person associated with the shipping address.
   - **`country`**: The name of the country of the shipping address.
-  - **`country_code`**: The two-letter code (ISO 3166-1 format) for the country of the shipping address.
   - **`first_name`**: The first name of the person associated with the payment method.
   - **`last_name`**: The last name of the person associated with the payment method.
-  - **`name`**: The full name of the person associated with the payment method.
   - **`phone`**: The phone number at the shipping address.
   - **`province`**: The name of the region (for example, province, state, or prefecture) of the shipping address.
-  - **`province_code`**: The two-letter abbreviation of the region of the shipping address.
   - **`zip`**: The postal code (for example, zip, postcode, or Eircode) of the shipping address.
   </details>
 
@@ -273,12 +279,18 @@ A message that's delivered to your application every time an order is created th
   "id": "987654321", 
   "line_items": [
     {
+      "price": "12.34",
       "quantity": 2,
-      "sku": "ABC-123"
+      "sku": "ABC-123",
+      "total_discount": "2.34",
+      "total_tax": "0.65"
     },
     {
-      "quantity": 1,
-      "sku": "XYZ-789"
+      "price": "43.21",
+      "quantity": 2,
+      "sku": "ABC-123",
+      "total_discount": "3.21",
+      "total_tax": "3.65"
     }
   ],
   "shipping_address": {
