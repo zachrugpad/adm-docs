@@ -160,7 +160,9 @@ Order.json
   "refunds": [],
   "shipping_address": {
     "address1": "123 Main Street",
+    "address2": null,
     "city": "Anytown",
+    "company": null,
     "country_code": "US",
     "first_name": "Jane",
     "last_name": "Doe",
@@ -295,13 +297,15 @@ A message that's delivered to your application every time an order is created th
   ],
   "shipping_address": {
     "address1": "123 Main Street",
+    "address2": null,
     "city": "Anytown",
-    "province": "CA",
-    "zip": "12345",
-    "country": "United States",
+    "company": null,
     "country_code": "US",
     "first_name": "Jane",
-    "last_name": "Doe"
+    "last_name": "Doe",
+    "phone": "(123) 456-7890",
+    "province_code": "CA",
+    "zip": "12345"
   },
   "shipping_service": "Standard Ground", 
   "subtotal_price": "79.98",
