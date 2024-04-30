@@ -154,6 +154,23 @@ Response
 
 </details>
 
+### 409 Conflict
+**Description:** The specified item was already fulfilled.
+
+<details>
+<summary>
+Response
+</summary>
+
+```js
+{
+  "error": "Item Already Fulfilled",
+  "message": "The specified item was already fulfilled."
+}
+```
+
+</details>
+
 ### 500 Internal Server Error
 **Description:** An unexpected error occurred.
 

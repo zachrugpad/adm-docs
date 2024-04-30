@@ -19,7 +19,7 @@ ADM encourages the utilization of webhook subscriptions for all its outbound dat
 
 ### Webhook Topic
 
-Webhooks are organized into topics. Your application subscribes to one topic per merchant to receive webhooks each time that type of event is triggered for your merchant on the ADM platform. The topic defines the kind of event messages that the app receives. For example, your app can subscribe to the ‘orders/create’ topic to be notified when an order is created that contains any of your products.
+Webhooks are organized into topics. Your application subscribes to one topic per merchant to receive webhooks each time that type of event is triggered for your merchant on the ADM platform. The topic defines the kind of event messages that the app receives. For example, your app can subscribe to the `orders/create` topic to be notified when an order is created that contains any of your products.
 
 Topics have a name that identifies the nature of the event that's triggered.
 
@@ -27,54 +27,26 @@ Topics have a name that identifies the nature of the event that's triggered.
 
 A webhook subscription declares your application’s intention to receive webhooks for a topic. A subscription includes the topic and the subscription endpoint, which is the HTTPS destination (URL) where ADM sends webhooks.
 
-For example, whenever an ‘orders/create’ event occurs, an event message (payload) is delivered to the endpoint your application set up as the destination when it subscribed.
+For example, whenever an `orders/create` event occurs, an event message (payload) is delivered to the endpoint your application set up as the destination when it subscribed.
 
 ## Endpoints
+
+As described in the webhook section above, endpoints are HTTPS destinations where an event message can be sent. Endpoints are used by merchants not only to receive event messages from ADM but also to send POST requests to. As such, ADM has created a library of endpoints that can be used to automatically provide ADM with real-time data.
+
+For example, after a fulfillment is created for an item sold on an ADM marketplace, using the `fulfillments` resource, your application can POST to the `/fulfillments.json` endpoint.
+
+Marketplace API endpoints are organized by resource type. All requests produce HTTP response status codes.
+
+## Authentication
+
+All REST Marketplace API queries require a valid ADM access token.
+
+During the testing phase of your application’s integration into the ADP platform an ADM access token will be provided.
+
+Include your token as a `X-ADM-Access-Token` header on all API queries.
 
 ## Support
 
 Should you encounter any issues or have questions during your integration, our technical team is available to assist you. Contact us at [api@americandigital.marketing.com](mailto:api@americandigital.marketing.com) for all technical support and integration queries.
 
 We look forward to supporting your e-commerce operations and helping you achieve streamlined order fulfillment on ADM marketplaces.
-
----
-
-# Old Stuff
-
-## Objects
-
-### Orders
-
-The Orders endpoint allows ADM to send comprehensive order details directly to your systems for efficient processing and fulfillment. This ensures that all necessary information, including quantities and customer shipping details, are transmitted securely and promptly.
-
-#### How It Works
-
-1. **Prepare Order Data:** ADM gathers all relevant order information, structured according to the format specified in the [Data Format](./orders) section.
-2. **Send to Partners:** Using the provided API credentials, ADM securely submits the order data to the partner's system.
-3. **Confirmation Receipt:** Upon successful submission, ADM receives a confirmation from the partner, acknowledging the receipt of the order.
-
-For more detailed information on the data fields required and the submission process, refer to the [Order Submission Guide](./orders).
-
-### Fulfillments
-
-Once orders are processed and items begin to ship, partners will use the Fulfillments endpoint to transmit real-time notifications back to ADM. These updates provide detailed information about the shipping status of each line item in an order, helping ADM keep track of fulfillment progress.
-
-#### Update Flow
-
-1. **Shipping Notification:** When an item ships, partners send a fulfillment update to ADM containing the shipping details, including SKU information and tracking numbers.
-2. **Receive Updates:** ADM receives these updates, allowing it to update the order status in its system and manage customer expectations accordingly.
-3. **Handling Exceptions:** In cases of delays or issues, partners provide additional updates to assist ADM in managing customer service.
-
-For a comprehensive guide on integrating and handling fulfillment updates, please see the [Fulfillment Updates Guide](./fulfillments).
-
-## Getting Started
-
-To begin integrating with the ADM Order Connector API, follow these steps:
-
-1. **API Credentials:** Ensure you have received your API credentials from ADM. These are necessary for authenticating your requests.
-
-2. **Read the Documentation:** Familiarize yourself with the API endpoints detailed in this documentation. Each section provides examples and required parameters to guide your integration process.
-
-3. **Test Your Integration:** Utilize our sandbox environment to test your API calls. This ensures that your integration is working correctly before going live.
-
-4. **Go Live:** Once testing is complete and you are satisfied with the integration, you can move to production and start automating your order fulfillment process.
