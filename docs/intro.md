@@ -39,11 +39,19 @@ Marketplace API endpoints are organized by resource type. All requests produce H
 
 ## Authentication
 
-All REST Marketplace API queries require a valid ADM access token.
+### Endpoints
+All REST Marketplace API Endpoint queries require a valid ADM access token.
 
-During the testing phase of your application’s integration into the ADP platform an ADM access token will be provided.
+During the testing phase of your application’s integration into the ADM platform an ADM access token will be provided.
 
 Include your token as a `X-ADM-Access-Token` header on all API queries.
+
+### Webhooks
+All REST Marketplace API Webhooks will be sent a valid ADM webhook token.
+
+During the testing phase of your application’s integration into the ADP platform an ADM webhook token will be provided.
+
+Authenticate all incoming webhooks using your provided ADM webhook token, and the provided hash function to decrypt incoming webhook messages.
 
 ## Support
 
