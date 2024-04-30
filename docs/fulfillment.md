@@ -3,6 +3,8 @@ sidebar_position: 3
 id: fulfillments
 title: Fulfillments 
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Fulfillments
 
@@ -66,12 +68,106 @@ Example Request JSON
             "quantity": 1
         }
     ],
-    "tracking_number": "1ZE356F8YW01937117",
-    "key": "AIzaSyDaGmWKa4JsXZ-HjGw7ISLn_3namBGewQe"
+    "tracking_number": "1ZE356F8YW01937117"
 }
 ```
 
 </details>
+
+<details>
+<summary>
+Code Examples
+</summary>
+  <Tabs>
+  <TabItem value="js" label="JS">
+    ```js
+    const url = 'https://americandigital.marketing.com/api/fulfillments/createFulfillment';
+    let bearerToken = "YOUR_BEARER_TOKEN_HERE"; 
+    const data = {
+     "order_id": 156465,
+     "line_items": [
+      {
+       "sku": "RPBF24-1941",
+       "quantity": 1
+      },
+      {
+       "sku": "RPBF24-2211",
+       "quantity": 1
+      }
+     ],
+     "tracking_number": "1ZE356F8YW01937117"
+    };
+
+    const options = {
+     method: 'POST',
+     headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${bearerToken}` // Use template literal for string formatting
+     },
+     body: JSON.stringify(data)
+    };
+
+    fetch(url, options)
+     .then(response => response.json())
+     .then(data => console.log('Success:', data))
+     .catch((error) => console.error('Error:', error));
+    ```
+  </TabItem>
+  <TabItem value="python" label="Python">
+    ```python
+    import requests
+
+    url = 'https://americandigital.marketing.com/api/fulfillments/createFulfillment'
+    bearer_token = "YOUR_BEARER_TOKEN_HERE" 
+    data = {
+        "order_id": 156465,
+        "line_items": [
+            {
+                "sku": "RPBF24-1941",
+                "quantity": 1
+            },
+            {
+                "sku": "RPBF24-2211",
+                "quantity": 1
+            }
+        ],
+        "tracking_number": "1ZE356F8YW01937117"
+    }
+
+    headers = {
+        'Content-Type': 'application/json',
+        'Authorization': f'Bearer {bearer_token}'  # Use f-string for formatting
+    }
+
+    response = requests.post(url, json=data, headers=headers)
+    print('Status Code:', response.status_code)
+    print('Response Body:', response.json())
+    ```
+  </TabItem>
+  <TabItem value="curl" label="curl">
+    ```python
+    curl -X POST 'https://americandigital.marketing.com/api/fulfillments/createFulfillment' \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer $BEARER_TOKEN' \
+    -d '{
+        "order_id": 156465,
+        "line_items": [
+            {
+                "sku": "RPBF24-1941",
+                "quantity": 1
+            },
+            {
+                "sku": "RPBF24-2211",
+                "quantity": 1
+            }
+        ],
+        "tracking_number": "1ZE356F8YW01937117"
+    }'
+    ```
+  </TabItem>
+</Tabs>
+</details>
+
 
 ## Example Responses
 
