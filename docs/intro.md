@@ -3,7 +3,7 @@ title: ADM Marketplace API
 sidebar_position: 1
 ---
 
-# ADM Marketplace API
+# American Digital Marketing <br/> Marketplace API
 
 ## Overview
 
