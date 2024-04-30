@@ -38,20 +38,15 @@ For example, after a fulfillment is created for an item sold on an ADM marketpla
 Marketplace API endpoints are organized by resource type. All requests produce HTTP response status codes.
 
 ## Authentication
-
-### Endpoints
-All REST Marketplace API Endpoint queries require a valid ADM access token.
-
-During the testing phase of your application’s integration into the ADM platform an ADM access token will be provided.
-
-Include your token as a `X-ADM-Access-Token` header on all API queries.
+ADM utilizes secret tokens to authenticate the messages sent to and received by our partners. Please take precautions not to share or expose these tokens to anyone without a required role or permission. If any token becomes compromised, a new token can be generated for your application upon request.
 
 ### Webhooks
-All REST Marketplace API Webhooks will be sent a valid ADM webhook token.
+When subscribing to an ADM Webhook, you will be provided with a `webhook token` that is specific to your application and can be used for all subscriptions. Each webhook request includes a signature in the HTTP header `X-ADM-Webhook-Signature`. This signature is generated using the HMAC-SHA-256 hashing algorithm.
+Your application can compare this `webhook signature` to a hashed version of the message body (created with your `webhook token`) to validate the authenticity of the message.
 
-During the testing phase of your application’s integration into the ADM platform an ADM webhook token will be provided.
-
-Authenticate all incoming webhooks using the `X-ADM-Webhook-Signature` header, the provided ADM Webhook token, and the provided hash function to decrypt incoming webhook messages.
+### Endpoints
+All REST Marketplace API queries require a valid ADM `access token`. During the testing phase of your application’s integration into the ADP platform, an ADM `access token` will be provided.
+Include your token as a `X-ADM-Access-Token` header on all API queries.
 
 ## Support
 
