@@ -8,7 +8,7 @@ title: Orders
 
 ## Overview
 
-The Order resource represents a customer's request to purchase one or more products from a merchant. This resource is critical for partners integrating with the ADM Marketplace API, as it enables them to receive detailed, structured information about orders processed by ADM. By leveraging this resource, partners can efficiently manage order fulfillment and ensure timely and accurate service and delivery.
+The `Order` resource represents a customer's request to purchase one or more products from a merchant. This resource is critical for partners integrating with the ADM Marketplace API, as it enables them to receive detailed, structured information about orders processed by ADM. By leveraging this resource, partners can efficiently manage order fulfillment and ensure timely and accurate service and delivery.
 
 
 ## Order resource
