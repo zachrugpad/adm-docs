@@ -8,7 +8,11 @@ import TabItem from '@theme/TabItem';
 
 # Fulfillments
 
+## Overview
+
 This endpoint is crucial for partners as it facilitates the creation of a fulfillment record for specific orders. Utilizing this function, partners can effectively communicate back to ADM the completion of the order processing phase, including the shipping details for each line item within an order. This seamless communication helps ensure that all parties are updated on the progress and status of order fulfillment. This endpoint is designed to handle both complete and partial fulfillments, allowing for flexibility in order fulfillment strategies.
+
+### Parameters
 
 ## Functionality
 
@@ -167,6 +171,18 @@ Code Examples
   </TabItem>
 </Tabs>
 </details>
+
+## CALL THIS SOMETHING
+
+### HTTP Method
+`POST`
+
+### Endpoint
+`/api/fulfillments/createFulfillment`
+
+### Headers
+- `Content-Type: application/json`
+- `Authorization: Bearer {api_key}`
 
 
 ## Example Responses
