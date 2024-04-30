@@ -133,38 +133,40 @@ Some text here
 
 ```js
 {
-  "created_at": "2024-04-26T11:11:58-04:00",
-  "email": "kevin.schmelter@rugpadusa.com",
-  "order_id": 5828730978625,
+  "cancel_reason": null,
+  "cancelled_at": null,
+  "created_at": "2023-12-20T10:15:30Z", 
+  "deliver_by": "2023-12-27T00:00:00Z", 
+  "email": "customer@example.com",
+  "fulfillments": [], 
+  "id": 987654321, 
   "line_items": [
-      {
-          "sku": "RPBF24-1941",
-          "quantity": 1
-      },
-      {
-          "sku": "RPBF24-2211",
-          "quantity": 1
-      }
+    {
+      "quantity": 2,
+      "sku": "ABC-123"
+    },
+    {
+      "quantity": 1,
+      "sku": "XYZ-789"
+    }
   ],
+  "refunds": [],
   "shipping_address": {
-    "first_name": "Kevin",
-    "address1": "100 Marketing Drive",
-    "phone": null,
-    "city": "Suffield",
-    "zip": "06078",
-    "province": "Connecticut",
+    "address1": "123 Main Street",
+    "city": "Anytown",
+    "province": "CA",
+    "zip": "12345",
     "country": "United States",
-    "last_name": "Schmelter",
-    "address2": null,
-    "company": null,
     "country_code": "US",
-    "province_code": "CT"
+    "first_name": "Jane",
+    "last_name": "Doe"
   },
-  "subtotal_price": "0.00",
-  "total_discounts": "10.00",
-  "total_line_items_price": "10.00",
-  "total_price": "0.00",
-  "total_tax": "0.00"
+  "shipping_service": "Standard Ground", 
+  "subtotal_price": "79.98",
+  "total_discounts": "5.00",
+  "total_price": "85.97", 
+  "total_shipping_price": "10.99", 
+  "total_tax": "0.00" 
 }
 ```
 
