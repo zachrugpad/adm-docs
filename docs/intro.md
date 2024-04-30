@@ -49,9 +49,9 @@ Include your token as a `X-ADM-Access-Token` header on all API queries.
 ### Webhooks
 All REST Marketplace API Webhooks will be sent a valid ADM webhook token.
 
-During the testing phase of your application’s integration into the ADP platform an ADM webhook token will be provided.
+During the testing phase of your application’s integration into the ADM platform an ADM webhook token will be provided.
 
-Authenticate all incoming webhooks using your provided ADM webhook token, and the provided hash function to decrypt incoming webhook messages.
+Authenticate all incoming webhooks using the `X-ADM-Webhook-Signature` header, the provided ADM Webhook token, and the provided hash function to decrypt incoming webhook messages.
 
 ## Support
 
