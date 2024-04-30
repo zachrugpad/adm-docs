@@ -27,7 +27,7 @@ Each fulfillment supports a single tracking number. If you need to use multiple 
 
 #### `line_items`
 - Type: `array`
-- Description: The order line items and the quantity of each which should be fulfilled. If this property is undefined, then all of the fulfillment order line items of the associated order are fulfilled.
+- Description: The order line items and the quantity of each which should be fulfilled.
   - **`sku`**: (string) The SKU of the order line item.
   - **`quantity`**: (integer) The quantity of the order line item, minimum of 1.
 
