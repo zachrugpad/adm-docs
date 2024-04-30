@@ -8,7 +8,7 @@ title: Fulfillments
 
 ## Overview
 
-The `Fulfillment` resource represents work that is completed as part of a marketplace order and can include one or more items. You can use the `Fulfillment` resource to manage fulfillments for marketplace orders. This resource is typically used in application that perform shipping-related actions, such as making tracking and delivery updates, or creating additional shipments as required for an order.
+The `Fulfillment` resource represents work that is completed as part of a marketplace order and can include one or more items. You can use the `Fulfillment` resource to manage fulfillments for marketplace orders. This resource is typically used in applications that perform shipping-related actions, such as making tracking and delivery updates, or creating additional shipments as required for an order.
 
 Each fulfillment supports a single tracking number. If you need to use multiple tracking numbers, then you should create separate fulfillments.
 
@@ -22,7 +22,7 @@ Each fulfillment supports a single tracking number. If you need to use multiple 
 - Description: The date and time when the fulfillment was created.
 
 #### `id`
-- Type: `integer`
+- Type: `string`
 - Description: The ID of the fulfillment.
 
 #### `line_items`
@@ -83,40 +83,25 @@ Fulfillment.json
 
 ```js
 {
-  "cancel_reason": null,
-  "cancelled_at": null,
-  "created_at": "2023-12-20T10:15:30Z", 
-  "deliver_by": "2023-12-27T00:00:00Z", 
-  "email": "customer@example.com",
-  "fulfillments": [], 
-  "id": 987654321, 
+  "created_at": "2023-12-20T10:15:30Z",
+  "id": "4579898",
   "line_items": [
     {
-      "quantity": 2,
-      "sku": "ABC-123"
-    },
-    {
-      "quantity": 1,
-      "sku": "XYZ-789"
+      "sku": "ABC-123",
+      "quantity": 2
     }
   ],
-  "refunds": [],
-  "shipping_address": {
+  "order_id": "987654321",
+  "origin_address": {
     "address1": "123 Main Street",
     "city": "Anytown",
-    "province": "CA",
-    "zip": "12345",
-    "country": "United States",
     "country_code": "US",
-    "first_name": "Jane",
-    "last_name": "Doe"
+    "province_code": "CA",
+    "zip": "12345"
   },
-  "shipping_service": "Standard Ground", 
-  "subtotal_price": "79.98",
-  "total_discounts": "5.00",
-  "total_price": "85.97", 
-  "total_shipping_price": "10.99", 
-  "total_tax": "0.00" 
+  "service": "Standard Ground",
+  "shipment_status": "success",
+  "tracking_number": "1Z987Y65432109876" 
 }
 ```
 </details>
@@ -169,20 +154,6 @@ POST `fulfillments/create`
 
 ```js
 {
-    "order_id": 156465,
-    "line_items": [
-        {
-            "sku": "ABC-123",
-            "quantity": 2
-        },
-        {
-            "sku": "RPBF24-2211",
-            "quantity": 1
-        }
-    ],
-    "tracking_number": "1ZE356F8YW01937117"
-}
-{
   "line_items": [
     {
       "sku": "ABC-123",
@@ -200,7 +171,6 @@ POST `fulfillments/create`
   "service": "Standard Ground",
   "tracking_number": "1Z987Y65432109876" 
 }
-
 ```
 </details>
 
