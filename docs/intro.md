@@ -33,7 +33,7 @@ For example, whenever an `orders/create` event occurs, an event message (payload
 
 As described in the webhook section above, endpoints are HTTPS destinations where an event message can be sent. Endpoints are used by merchants not only to receive event messages from ADM but also to send POST requests to. As such, ADM has created a library of endpoints that can be used to automatically provide ADM with real-time data.
 
-For example, after a fulfillment is created for an item sold on an ADM marketplace, using the `fulfillments` resource, your application can POST to the `/fulfillments.json` endpoint.
+For example, after a fulfillment is created for an item sold on an ADM marketplace, using the `fulfillments` resource, your application can POST to the `fulfillments/create` endpoint.
 
 Marketplace API endpoints are organized by resource type. All requests produce HTTP response status codes.
 
@@ -42,10 +42,12 @@ ADM utilizes secret tokens to authenticate the messages sent to and received by 
 
 ### Webhooks
 When subscribing to an ADM Webhook, you will be provided with a `webhook token` that is specific to your application and can be used for all subscriptions. Each webhook request includes a signature in the HTTP header `X-ADM-Webhook-Signature`. This signature is generated using the HMAC-SHA-256 hashing algorithm.
+
 Your application can compare this `webhook signature` to a hashed version of the message body (created with your `webhook token`) to validate the authenticity of the message.
 
 ### Endpoints
 All REST Marketplace API queries require a valid ADM `access token`. During the testing phase of your application’s integration into the ADP platform, an ADM `access token` will be provided.
+
 Include your token as a `X-ADM-Access-Token` header on all API queries.
 
 ## Support
