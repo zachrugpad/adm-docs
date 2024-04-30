@@ -3,60 +3,168 @@ sidebar_position: 3
 id: fulfillments
 title: Fulfillments 
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 # Fulfillments
 
 ## Overview
 
-This endpoint is crucial for partners as it facilitates the creation of a fulfillment record for specific orders. Utilizing this function, partners can effectively communicate back to ADM the completion of the order processing phase, including the shipping details for each line item within an order. This seamless communication helps ensure that all parties are updated on the progress and status of order fulfillment. This endpoint is designed to handle both complete and partial fulfillments, allowing for flexibility in order fulfillment strategies.
+The `Fulfillment` resource represents work that is completed as part of a marketplace order and can include one or more items. You can use the `Fulfillment` resource to manage fulfillments for marketplace orders. This resource is typically used in application that perform shipping-related actions, such as making tracking and delivery updates, or creating additional shipments as required for an order.
 
-### Parameters
+Each fulfillment supports a single tracking number. If you need to use multiple tracking numbers, then you should create separate fulfillments.
 
-## Functionality
+## Fulfillment resource
 
-When an order is ready to be shipped, the `Create a Fulfillment` endpoint enables the registering of each package with its respective tracking details. This information is vital for maintaining transparency and allows ADM to update customers on their order status in real-time.
+### Properties
 
-## Parameters and Use
+#### `created_at`
+- Type: `string`
+- Format: ISO 8601
+- Description: The date and time when the fulfillment was created.
 
-To create a fulfillment, you must specify which line items in the order are being fulfilled, and provide a tracking number for the shipment. The endpoint requires detailed information about each line item, including the SKU and the quantity that is being shipped. This structured approach ensures precise tracking and handling of individual order components.
+#### `id`
+- Type: `integer`
+- Description: The ID of the fulfillment.
 
-### Parameters
-
-#### `line_items_by_fulfillment_order` <sup class="required">required</sup>
+#### `line_items`
 - Type: `array`
-- Description: This array should contain detailed information about each item that is part of the fulfillment, ensuring that the correct items are shipped and tracked.
-  - **`order_id`**: <sup class="required">required</sup> (integer) The ID of the order you are fulfilling.
-  - **`line_items`**: <sup class="required">required</sup> (array) The fulfillment order line items and the quantity of each which should be fulfilled. If this property is undefined, then all of the fulfillment order line items of the associated fulfillment order are fulfilled.
-    - **`sku`**: <sup class="required">required</sup> (string) The SKU of the order line item.
-    - **`quantity`**: <sup class="required">required</sup> (integer) The quantity of the order line item, minimum of 1.
+- Description: The order line items and the quantity of each which should be fulfilled. If this property is undefined, then all of the fulfillment order line items of the associated order are fulfilled.
+  - **`sku`**: (string) The SKU of the order line item.
+  - **`quantity`**: (integer) The quantity of the order line item, minimum of 1.
+
+#### `order_id`
+- Type: `string`
+- Description: The ID of the order you are fulfilling.
+
+#### `origin_address`
+- Type: `object`
+- Object Type: `OriginAddress`
+- Description: The address of the fulfillment location.
+  <details>
+  <summary>
+  See Origin Address Properties
+  </summary>
+  - **`address1`**: (string) The street address of the fulfillment location.
+  - **`address2`**: (string) The second line of the address. Typically the number of the apartment, suite, or unit.
+  - **`city`**: (string) The city of the fulfillment location.
+  - **`country_code`**: (string) The two-letter country code (ISO 3166-1 alpha-2 format) of the fulfillment location.
+  - **`province_code`**: (string) The province of the fulfillment location.
+  - **`zip`**: (string) The zip code of the fulfillment location.
+  </details>
+
+#### `service`
+- Type: `string`
+- Description: A reference to the shipping service that is used for the fulfillment.
+
+#### `shipment_status`
+- Type: `string`
+- Description: A reference to the fulfillment service that is used for the shipping method.
+<details>
+<summary>
+Valid Values
+</summary>
+- pending: ADM has created the fulfillment and is waiting for the fulfillment service to transition it to 'open' or 'success'.
+- open: The fulfillment has been acknowledged by the service and is in processing.
+- success: The fulfillment was successful.
+- cancelled: The fulfillment was cancelled.
+- error: There was an error with the fulfillment request.
+- failure: The fulfillment request failed.
+</details>
+
+#### `tracking_number`
+- Type: `string`
+- Description: A crucial element for logistics, the tracking number allows ADM and the customer to track the shipment's progress.
+
+### Example
+
+<details>
+<summary>
+Fulfillment.json
+</summary>
+
+```js
+{
+  "cancel_reason": null,
+  "cancelled_at": null,
+  "created_at": "2023-12-20T10:15:30Z", 
+  "deliver_by": "2023-12-27T00:00:00Z", 
+  "email": "customer@example.com",
+  "fulfillments": [], 
+  "id": 987654321, 
+  "line_items": [
+    {
+      "quantity": 2,
+      "sku": "ABC-123"
+    },
+    {
+      "quantity": 1,
+      "sku": "XYZ-789"
+    }
+  ],
+  "refunds": [],
+  "shipping_address": {
+    "address1": "123 Main Street",
+    "city": "Anytown",
+    "province": "CA",
+    "zip": "12345",
+    "country": "United States",
+    "country_code": "US",
+    "first_name": "Jane",
+    "last_name": "Doe"
+  },
+  "shipping_service": "Standard Ground", 
+  "subtotal_price": "79.98",
+  "total_discounts": "5.00",
+  "total_price": "85.97", 
+  "total_shipping_price": "10.99", 
+  "total_tax": "0.00" 
+}
+```
+</details>
+
+## Fulfillment endpoint
+Creates a fulfillment for one or more line items. The line items are associated with the same marketplace order
+
+### Parameters
+
+#### `line_items` <sup class="required">required</sup>
+- Type: `array`
+- Description: The order line items and the quantity of each which should be fulfilled.
+  - **`sku`**: (string) The SKU of the order line item.
+  - **`quantity`**: (integer) The quantity of the order line item, minimum of 1.
+
+#### `order_id` <sup class="required">required</sup>
+- Type: `string`
+- Description: The ID of the order you are fulfilling.
+
+#### `origin_address` <sup class="required">required</sup>
+- Type: `object`
+- Object Type: `OriginAddress`
+- Description: The address of the fulfillment location.
+  <details>
+  <summary>
+  See Origin Address Properties
+  </summary>
+  - **`address1`**: (string) The street address of the fulfillment location.
+  - **`address2`**: (string) The second line of the address. Typically the number of the apartment, suite, or unit.
+  - **`city`**: (string) The city of the fulfillment location.
+  - **`country_code`**: (string) The two-letter country code (ISO 3166-1 alpha-2 format) of the fulfillment location.
+  - **`province_code`**: (string) The province of the fulfillment location.
+  - **`zip`**: (string) The zip code of the fulfillment location.
+  </details>
+
+#### `service` <sup class="required">required</sup>
+- Type: `string`
+- Description: A reference to the shipping service that is used for the fulfillment.
 
 #### `tracking_number` <sup class="required">required</sup>
 - Type: `string`
 - Description: A crucial element for logistics, the tracking number allows ADM and the customer to track the shipment's progress.
 
-#### `key` <sup class="required">required</sup>
-- Type: `string`
-- Description: Your ADM Marketplace API Key
-
-:::note
-
-You can set only one tracking number and one tracking URL per fulfillment. If you send multiple shipments with one order, you must create separate fulfillments for each shipment.
-
-:::
-
-### Responses
-
-Success and error responses are clearly defined to provide feedback on the fulfillment creation process:
-- **200 OK**: Indicates that the fulfillment was successfully created, with details of the created record.
-- **400 Bad Request**: Returned when there are issues with the input data, such as an invalid SKU or quantity.
-- **404 Not Found**: Occurs if the specified order ID does not exist, ensuring that fulfillments are only created for valid orders.
-- **500 Internal Server Error**: Covers any unexpected errors on the server side, protecting against unforeseen issues.
+### Example
 
 <details>
 <summary>
-Example Request JSON
+POST `fulfillments/create`
 </summary>
 
 ```js
@@ -64,8 +172,8 @@ Example Request JSON
     "order_id": 156465,
     "line_items": [
         {
-            "sku": "RPBF24-1941",
-            "quantity": 1
+            "sku": "ABC-123",
+            "quantity": 2
         },
         {
             "sku": "RPBF24-2211",
@@ -74,124 +182,35 @@ Example Request JSON
     ],
     "tracking_number": "1ZE356F8YW01937117"
 }
+{
+  "line_items": [
+    {
+      "sku": "ABC-123",
+      "quantity": 2
+    }
+  ],
+  "order_id": "987654321",
+  "origin_address": {
+    "address1": "123 Main Street",
+    "city": "Anytown",
+    "province_code": "CA",
+    "country_code": "US",
+    "zip": "12345"
+  },
+  "service": "Standard Ground",
+  "tracking_number": "1Z987Y65432109876" 
+}
+
 ```
-
 </details>
 
-<details>
-<summary>
-Code Examples
-</summary>
-  <Tabs>
-  <TabItem value="js" label="JS">
-    ```js
-    const url = 'https://americandigital.marketing.com/api/fulfillments/createFulfillment';
-    let bearerToken = "YOUR_BEARER_TOKEN_HERE"; 
-    const data = {
-     "order_id": 156465,
-     "line_items": [
-      {
-       "sku": "RPBF24-1941",
-       "quantity": 1
-      },
-      {
-       "sku": "RPBF24-2211",
-       "quantity": 1
-      }
-     ],
-     "tracking_number": "1ZE356F8YW01937117"
-    };
-
-    const options = {
-     method: 'POST',
-     headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${bearerToken}` // Use template literal for string formatting
-     },
-     body: JSON.stringify(data)
-    };
-
-    fetch(url, options)
-     .then(response => response.json())
-     .then(data => console.log('Success:', data))
-     .catch((error) => console.error('Error:', error));
-    ```
-  </TabItem>
-  <TabItem value="python" label="Python">
-    ```python
-    import requests
-
-    url = 'https://americandigital.marketing.com/api/fulfillments/createFulfillment'
-    bearer_token = "YOUR_BEARER_TOKEN_HERE" 
-    data = {
-        "order_id": 156465,
-        "line_items": [
-            {
-                "sku": "RPBF24-1941",
-                "quantity": 1
-            },
-            {
-                "sku": "RPBF24-2211",
-                "quantity": 1
-            }
-        ],
-        "tracking_number": "1ZE356F8YW01937117"
-    }
-
-    headers = {
-        'Content-Type': 'application/json',
-        'Authorization': f'Bearer {bearer_token}'  # Use f-string for formatting
-    }
-
-    response = requests.post(url, json=data, headers=headers)
-    print('Status Code:', response.status_code)
-    print('Response Body:', response.json())
-    ```
-  </TabItem>
-  <TabItem value="curl" label="curl">
-    ```python
-    curl -X POST 'https://americandigital.marketing.com/api/fulfillments/createFulfillment' \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer $BEARER_TOKEN' \
-    -d '{
-        "order_id": 156465,
-        "line_items": [
-            {
-                "sku": "RPBF24-1941",
-                "quantity": 1
-            },
-            {
-                "sku": "RPBF24-2211",
-                "quantity": 1
-            }
-        ],
-        "tracking_number": "1ZE356F8YW01937117"
-    }'
-    ```
-  </TabItem>
-</Tabs>
-</details>
-
-## CALL THIS SOMETHING
-
-### HTTP Method
-`POST`
-
-### Endpoint
-`/api/fulfillments/createFulfillment`
-
-### Headers
-- `Content-Type: application/json`
-- `Authorization: Bearer {api_key}`
-
-
-## Example Responses
+### HTTP Responses
 
 Included are examples of both the request format and the various responses you might encounter. These examples help to clarify the expected data format and guide proper API usage.
 
 This endpoint is a key component in the fulfillment process, enabling efficient and accurate updates on order processing and shipment.
 
-### 200 OK
+#### 200 OK
 **Description:** The fulfillment was successfully created.
 
 <details>
@@ -215,7 +234,7 @@ Response
 
 </details>
 
-### 400 Bad Request
+#### 400 Bad Request
 **Description:** The request was invalid. An accompanying message will provide details about the error.
 
 <details>
@@ -232,7 +251,7 @@ Response
 
 </details>
 
-### 401 Unauthorized
+#### 401 Unauthorized
 **Description:** The request was not authorized.
 
 <details>
@@ -249,7 +268,7 @@ Response
 
 </details>
 
-### 404 Not Found
+#### 404 Not Found
 **Description:** The specified order ID does not exist.
 
 <details>
@@ -266,7 +285,7 @@ Response
 
 </details>
 
-### 409 Conflict
+#### 409 Conflict
 **Description:** The specified item was already fulfilled.
 
 <details>
@@ -283,7 +302,7 @@ Response
 
 </details>
 
-### 500 Internal Server Error
+#### 500 Internal Server Error
 **Description:** An unexpected error occurred.
 
 <details>
